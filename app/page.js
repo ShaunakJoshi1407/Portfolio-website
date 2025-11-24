@@ -10,7 +10,7 @@ import { TypeAnimation } from "react-type-animation";
 
 const Home = () => {
   // Keep this for direct download if needed
-  const resumeDownloadLink = "https://drive.google.com/file/d/1dBe1KK1hqP2HHLr4rLvYBaOs3voehWJt/view?usp=drive_link";
+  const resumeDownloadLink = "https://drive.google.com/file/d/1CX9i6hnIIB12TJONcOoDOyHMHq_VPU_q/view?usp=drive_link";
 
   return <section className="h-full py-6 md:py-0">
     <div className="container mx-auto h-full">
