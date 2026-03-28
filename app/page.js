@@ -36,9 +36,9 @@ const Home = () => {
             </h1>
 
             <p className="text-white/50 text-base leading-relaxed mb-10 max-w-[480px]">
-              I build automation pipelines and manage cloud infrastructure that
-              teams depend on — making systems more reliable, automated, and
-              secure at Hewlett Packard Enterprise.
+              I build secure automation pipelines and cloud infrastructure that make
+              systems more reliable, scalable, and resilient at Hewlett
+              Packard Enterprise.
             </p>
 
             <div className="flex flex-col xl:flex-row items-center gap-6">

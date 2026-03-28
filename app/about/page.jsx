@@ -14,7 +14,7 @@ const AboutMe = () => {
             I&apos;m currently working as a{" "}
             <span className="text-white">Software Engineer</span> at{" "}
             <span className="text-white">Hewlett Packard Enterprise</span> in
-            Minneapolis, MN, where I focus on DevSecOps — building CI/CD
+            Minneapolis, MN, where I focus on DevSecOps building CI/CD
             pipelines, automating security workflows, and improving how software
             ships reliably across teams. I recently completed my{" "}
             <span className="text-white">Master&apos;s in Computer Science</span>{" "}
@@ -26,7 +26,7 @@ const AboutMe = () => {
           <p>
             Before HPE, I spent two years at{" "}
             <span className="text-white">Platform9 Systems</span> working on
-            Kubernetes infrastructure — automating cluster deployments, reducing
+            Kubernetes infrastructure automating cluster deployments, reducing
             manual configuration overhead, and making it easier for teams to run
             containerized workloads at scale. At{" "}
             <span className="text-white">Texas A&M</span>, I built APIs and
