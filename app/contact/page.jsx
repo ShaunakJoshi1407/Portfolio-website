@@ -20,7 +20,7 @@ const info = [
     icon: <FaLinkedin />,
     title: "LinkedIn",
     description: "shaunakjoshi",
-    link: "https://linkedin.com/in/shaunakjoshi",
+    link: "https://www.linkedin.com/in/shaunakhemantjoshi/",
   },
   {
     icon: <FaGithub />,

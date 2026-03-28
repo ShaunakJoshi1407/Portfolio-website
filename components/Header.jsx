@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "./ui/button";
 import Nav from "./Nav";
 import MobileNav from "./MobileNav";
 
@@ -9,7 +8,7 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/">
-          <h1 className="text-xl font-semibold tracking-tight text-white">
+          <h1 className="text-2xl font-semibold tracking-tight text-white">
             Shaunak Joshi
           </h1>
         </Link>
@@ -17,11 +16,6 @@ const Header = () => {
         {/* Desktop nav */}
         <div className="hidden xl:flex items-center gap-8">
           <Nav />
-          <Link href="/contact">
-            <Button className="bg-white text-black hover:bg-white/90 font-medium px-5 h-9 text-sm rounded-md">
-              Hire me
-            </Button>
-          </Link>
         </div>
 
         {/* Mobile nav */}
