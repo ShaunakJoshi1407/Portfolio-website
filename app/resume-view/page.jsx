@@ -1,61 +1,66 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft, FaDownload, FaExternalLinkAlt } from "react-icons/fa";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+const RESUME_DRIVE_LINK =
+  "https://drive.google.com/file/d/1CX9i6hnIIB12TJONcOoDOyHMHq_VPU_q/view?usp=drive_link";
+const RESUME_DOWNLOAD_LINK =
+  "https://drive.google.com/uc?export=download&id=1CX9i6hnIIB12TJONcOoDOyHMHq_VPU_q";
+
 const ResumeViewer = () => {
-  const [loading, setLoading] = useState(true);
-  const resumeLink = "https://drive.google.com/file/d/1CX9i6hnIIB12TJONcOoDOyHMHq_VPU_q/preview";
-  
-  useEffect(() => {
-    // Add a short delay to simulate loading and improve UX
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-    
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <div className="relative min-h-screen w-full bg-[#1c1c22]">
-      {/* Back button positioned below navbar, subtle design */}
-      <div className="container mx-auto pt-27 pb-4">
-        <Link href="/">
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            className="flex items-center gap-2 text-white/70 hover:text-accent hover:bg-transparent transition-colors"
-          >
-            <FaArrowLeft className="text-sm" /> <span>Back to portfolio</span>
-          </Button>
-        </Link>
-      </div>
-
-      {/* Loading state */}
-      {loading && (
-        <div className="flex items-center justify-center min-h-[80vh]">
-          <div className="animate-spin rounded-full h-14 w-14 border-t-2 border-b-2 border-accent"></div>
-        </div>
-      )}
-
-      {/* Google Drive embedded viewer */}
-      <motion.div 
-        className="container mx-auto pt-28 pb-10"
-        initial={{ opacity: 0 }}
-        animate={{ 
-          opacity: loading ? 0 : 1,
-          transition: { duration: 0.5 }
-        }}
+    <div className="relative min-h-screen w-full bg-[#1c1c22] flex flex-col items-center justify-center px-6">
+      <motion.div
+        className="max-w-lg w-full text-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
       >
-        <div className="bg-[#232329] p-2 rounded-xl shadow-lg border border-white/5">
-          <iframe 
-            src={resumeLink} 
-            className="w-full h-[75vh] rounded-lg"
-            frameBorder="0"
-            allowFullScreen
-          />
+        <div className="mb-8">
+          <Link href="/">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="flex items-center gap-2 text-white/50 hover:text-accent hover:bg-transparent transition-colors mb-8"
+            >
+              <FaArrowLeft className="text-sm" />
+              <span>Back to portfolio</span>
+            </Button>
+          </Link>
+        </div>
+
+        <h1 className="text-3xl font-bold mb-3">
+          Shaunak Joshi — <span className="text-accent">Resume</span>
+        </h1>
+        <p className="text-white/60 mb-10">
+          Software Engineer · DevSecOps · Cloud Infrastructure
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href={RESUME_DOWNLOAD_LINK} download>
+            <Button
+              size="lg"
+              className="flex items-center gap-2 px-8 w-full sm:w-auto bg-accent text-primary hover:bg-accent/90 font-semibold"
+            >
+              <FaDownload />
+              Download PDF
+            </Button>
+          </a>
+          <a
+            href={RESUME_DRIVE_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              variant="outline"
+              size="lg"
+              className="flex items-center gap-2 px-8 w-full sm:w-auto"
+            >
+              <FaExternalLinkAlt />
+              View in Google Drive
+            </Button>
+          </a>
         </div>
       </motion.div>
     </div>

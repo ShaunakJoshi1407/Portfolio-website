@@ -2,17 +2,11 @@
 
 import { Button } from '@/components/ui/button';
 
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaDownload } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaDownload } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 const info = [
-    {
-        icon: <FaPhoneAlt />,
-        title: 'Phone',
-        description: "+1 979-344-3680",
-        link: "tel:+19793443680"
-    },
     {
         icon: <FaEnvelope />,
         title: 'Email',

@@ -8,7 +8,7 @@ import { useState } from "react";
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState("All");
-  const categories = ["All", "ML", "Full-Stack", "Data Analysis"];
+  const categories = ["All", "DevOps", "ML", "Full-Stack", "Data Analysis"];
 
   const filteredProjects = activeCategory === "All"
     ? projects
@@ -73,12 +73,23 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="mt-4">
-                  <Link
-                    href={project.page}
-                    className="text-sm font-semibold bg-white text-black px-4 py-2 rounded hover:bg-accent hover:text-white transition"
-                  >
-                    View Project
-                  </Link>
+                  {project.page ? (
+                    <Link
+                      href={project.page}
+                      className="text-sm font-semibold bg-white text-black px-4 py-2 rounded hover:bg-accent hover:text-white transition"
+                    >
+                      View Details
+                    </Link>
+                  ) : (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold bg-white text-black px-4 py-2 rounded hover:bg-accent hover:text-white transition"
+                    >
+                      View on GitHub
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
