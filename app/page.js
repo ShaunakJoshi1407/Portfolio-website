@@ -8,19 +8,19 @@ import { TypeAnimation } from "react-type-animation";
 
 const Home = () => {
   return (
-    <section className="h-full py-6 md:py-0">
-      <div className="container mx-auto h-full">
-        <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
-          {/* text */}
-          <div className="text-center xl:text-left order-2 xl:order-none">
-            <p className="text-white/60 text-sm uppercase tracking-[4px] mb-3">
+    <section className="min-h-[calc(100vh-80px)] flex flex-col justify-center py-12">
+      <div className="container mx-auto">
+        <div className="flex flex-col xl:flex-row items-center justify-between gap-12 xl:gap-0">
+          {/* Text */}
+          <div className="text-center xl:text-left order-2 xl:order-none max-w-xl">
+            <p className="font-code text-xs uppercase tracking-[4px] text-accent/60 mb-4">
               Software Engineer @ HPE
             </p>
 
-            <h1 className="h1 mb-6">
+            <h1 className="h1 mb-4 text-white">
               <TypeAnimation
                 sequence={[
-                  "DevSecOps Engineer",
+                  "DevSecOps",
                   2500,
                   "Kubernetes & Cloud",
                   2500,
@@ -32,56 +32,42 @@ const Home = () => {
                 wrapper="span"
                 speed={50}
                 repeat={Infinity}
-                className="text-accent"
               />
             </h1>
 
-            <p className="max-w-[500px] mb-9 text-white/80 text-base leading-relaxed">
+            <p className="text-white/50 text-base leading-relaxed mb-10 max-w-[480px]">
               I build automation pipelines and manage cloud infrastructure that
-              teams depend on. From streamlining Kubernetes workflows to driving{" "}
-              <span className="text-accent font-medium">DevSecOps</span>{" "}
-              initiatives — I focus on making systems more reliable, automated,
-              and secure at{" "}
-              <span className="text-accent font-medium">
-                Hewlett Packard Enterprise
-              </span>
-              .
+              teams depend on — making systems more reliable, automated, and
+              secure at Hewlett Packard Enterprise.
             </p>
 
-            {/* buttons and socials */}
-            <div className="flex flex-col xl:flex-row items-center gap-8">
+            <div className="flex flex-col xl:flex-row items-center gap-6">
               <a
                 href="https://drive.google.com/file/d/1CX9i6hnIIB12TJONcOoDOyHMHq_VPU_q/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="flex uppercase items-center gap-2 px-8"
-                >
+                <Button className="bg-white text-black hover:bg-white/90 font-medium px-6 h-10 rounded-md flex items-center gap-2">
                   <span>Resume</span>
-                  <FiDownload className="text-xl" />
+                  <FiDownload className="text-base" />
                 </Button>
               </a>
               <Social
-                containerStyles="flex gap-6"
-                iconStyles="w-11 h-11 border border-accent rounded-full flex
-                  justify-center items-center text-accent text-lg hover:bg-accent
-                  hover:text-primary hover:transition-all duration-500"
+                containerStyles="flex gap-4"
+                iconStyles="w-9 h-9 border border-white/10 rounded-full flex justify-center items-center text-white/40 text-sm hover:border-accent/50 hover:text-accent transition-all duration-300"
               />
             </div>
           </div>
 
-          {/* photo */}
-          <div className="order-1 xl:order-none mb-12 xl:mb-0">
+          {/* Photo */}
+          <div className="order-1 xl:order-none">
             <Photo />
           </div>
         </div>
-      </div>
 
-      {/* Stats bar */}
-      <Stats />
+        {/* Stats */}
+        <Stats />
+      </div>
     </section>
   );
 };

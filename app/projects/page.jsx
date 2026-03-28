@@ -6,88 +6,97 @@ import { motion } from "framer-motion";
 import projects from "../../projectData";
 import { useState } from "react";
 
-const Projects = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const categories = ["All", "DevOps", "ML", "Full-Stack", "Data Analysis"];
+const categories = ["All", "DevOps", "ML", "Full-Stack", "Data Analysis"];
 
-  const filteredProjects = activeCategory === "All"
-    ? projects
-    : projects.filter(project => project.category === activeCategory);
+const Projects = () => {
+  const [active, setActive] = useState("All");
+
+  const filtered =
+    active === "All" ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section className="min-h-screen px-6 py-12 pt-32 text-white">
+    <section className="min-h-screen py-16 xl:py-24">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold mb-10 text-center">Projects</h2>
-        
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-10">
-          {categories.map((category) => (
+        <h1 className="text-4xl xl:text-5xl font-semibold tracking-tight text-white mb-10">
+          Projects
+        </h1>
+
+        {/* Filter */}
+        <div className="flex flex-wrap gap-2 mb-12">
+          {categories.map((cat) => (
             <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full transition-all ${
-                activeCategory === category
-                  ? "bg-accent text-white font-medium"
-                  : "bg-white/10 hover:bg-white/20"
+              key={cat}
+              onClick={() => setActive(cat)}
+              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                active === cat
+                  ? "bg-accent text-primary font-semibold"
+                  : "text-white/40 hover:text-white/70 border border-white/10 hover:border-accent/30"
               }`}
             >
-              {category}
+              {cat}
             </button>
           ))}
         </div>
 
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((project, index) => (
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {filtered.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
-              className="bg-[#111] rounded-lg shadow-lg overflow-hidden border border-white/10 hover:border-accent transition-all"
+              transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.05 }}
+              viewport={{ once: true }}
+              className="group bg-surface rounded-xl overflow-hidden border border-white/5 hover:border-white/15 transition-colors"
             >
-              <div className="relative h-48">
+              {/* Image */}
+              <div className="relative h-44 overflow-hidden bg-[#0a0a0a]">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover"
+                  className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
                 />
-                {/* Category Badge */}
-                <div className="absolute top-3 right-3 bg-accent/90 text-white text-xs px-2 py-1 rounded-full font-medium">
-                  {project.category}
+                <div className="absolute top-3 left-3">
+                  <span className="font-code text-[10px] uppercase tracking-widest text-white/40 bg-black/60 backdrop-blur-sm px-2 py-1 rounded">
+                    {project.category}
+                  </span>
                 </div>
               </div>
+
+              {/* Content */}
               <div className="p-5">
-                <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-white/70 text-sm mb-4">
+                <h3 className="text-white font-semibold text-lg mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-white/40 text-sm leading-relaxed mb-4 line-clamp-2">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 text-xs mb-4">
+                <div className="flex flex-wrap gap-1.5 mb-5">
                   {project.stack.map((tech, i) => (
                     <span
                       key={i}
-                      className="bg-white/10 px-2 py-1 rounded text-accent font-medium"
+                      className="font-code text-[10px] text-accent/50 bg-accent/5 px-2 py-0.5 rounded"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-                <div className="mt-4">
+                <div>
                   {project.page ? (
                     <Link
                       href={project.page}
-                      className="text-sm font-semibold bg-white text-black px-4 py-2 rounded hover:bg-accent hover:text-white transition"
+                      className="text-sm text-white/40 hover:text-accent transition-colors font-medium"
                     >
-                      View Details
+                      View details →
                     </Link>
                   ) : (
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-semibold bg-white text-black px-4 py-2 rounded hover:bg-accent hover:text-white transition"
+                      className="text-sm text-white/40 hover:text-accent transition-colors font-medium"
                     >
-                      View on GitHub
+                      View on GitHub →
                     </a>
                   )}
                 </div>
@@ -96,11 +105,10 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Empty state message */}
-        {filteredProjects.length === 0 && (
-          <div className="text-center py-10">
-            <p className="text-xl text-white/60">No {activeCategory} projects found</p>
-          </div>
+        {filtered.length === 0 && (
+          <p className="text-white/30 text-center py-16">
+            No {active} projects found.
+          </p>
         )}
       </div>
     </section>

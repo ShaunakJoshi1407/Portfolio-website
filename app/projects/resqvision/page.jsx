@@ -11,7 +11,7 @@ const ResqVision = () => {
       <div className="container mx-auto max-w-4xl">
         <Link
           href="/projects"
-          className="inline-flex items-center gap-2 text-white/50 hover:text-accent transition-colors mb-10 text-sm"
+          className="inline-flex items-center gap-2 text-white/40 hover:text-accent transition-colors mb-10 text-sm"
         >
           <FaArrowLeft /> Back to Projects
         </Link>
@@ -21,7 +21,7 @@ const ResqVision = () => {
           animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
         >
           <div className="flex items-center gap-3 mb-3">
-            <span className="bg-accent/15 text-accent text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+            <span className="bg-accent/5 text-accent text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
               Full-Stack
             </span>
           </div>
@@ -43,7 +43,7 @@ const ResqVision = () => {
 
           <div className="flex flex-wrap gap-2 mb-10">
             {["React.js", "D3.js", "Vite", "Tailwind CSS", "JSON", "GitHub Pages"].map((tech) => (
-              <span key={tech} className="bg-white/10 text-accent text-xs font-medium px-3 py-1 rounded">
+              <span key={tech} className="bg-accent/10 text-accent text-xs font-medium px-3 py-1 rounded">
                 {tech}
               </span>
             ))}
@@ -72,16 +72,16 @@ const ResqVision = () => {
           ].map((item, i) => (
             <div
               key={i}
-              className="bg-[#232329] rounded-xl p-6 border border-white/5 hover:border-accent/20 transition-all"
+              className="bg-surface rounded-xl p-6 border border-white/5 hover:border-white/15 transition-all"
             >
-              <h3 className="text-accent font-semibold mb-2">{item.title}</h3>
+              <h3 className="text-white font-semibold mb-2">{item.title}</h3>
               <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
 
         {/* Dashboard views */}
-        <div className="bg-[#232329] rounded-xl p-6 border border-white/5 mb-10">
+        <div className="bg-surface rounded-xl p-6 border border-white/5 mb-10">
           <h3 className="font-semibold mb-4 text-white/90">Dashboard Views</h3>
           <ul className="flex flex-col gap-2">
             {[
@@ -92,7 +92,7 @@ const ResqVision = () => {
               "Delay analysis — identifying incidents where response time exceeded threshold",
             ].map((point, i) => (
               <li key={i} className="flex items-start gap-2 text-white/60 text-sm">
-                <span className="text-accent mt-0.5 shrink-0">▸</span>
+                <span className="text-accent/60 mt-0.5 shrink-0">▸</span>
                 {point}
               </li>
             ))}

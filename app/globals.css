@@ -2,61 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-    body{
-        @apply font-primary bg-primary text-white leading-loose;
-    }
-    .h1{
-        @apply text-[40px] xl:text-[60px] leading-[1.1] font-semibold;
-    }
-    .h2{
-        @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
-    }
-    .h3{
-        @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
-    }
-    
-   @keyframes fade-rotate {
-        0%, 100% {
-            opacity: 0;
-            transform: rotate(-10deg);
-        }
-        50% {
-            opacity: 1;
-            transform: rotate(0deg);
-        }
-    }
+@layer base {
+  body {
+    @apply font-primary bg-primary text-white leading-relaxed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-    .rotating-text {
-        display: inline-block;
-        animation: slide-fade 6s infinite;
-    }
+  .h1 {
+    @apply text-[40px] xl:text-[60px] leading-[1.1] font-semibold tracking-tight;
+  }
+  .h2 {
+    @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold tracking-tight;
+  }
+  .h3 {
+    @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
+  }
 
-    .text-outline {
-        -webkit-text-stroke: 1px #ffffff;
-    }
-    
-    .text-outline-hover {
-        -webkit-text-stroke: 1px #00ff99;
-    }
-
-    .text-vibrant-blue {
-        color: #007BFF; /* Bootstrap’s primary blue */
-    }
-    .text-soft-coral {
-        color: #F88379; /* Coral color */
-    }
-    .button-hover:hover, .icon-hover:hover {
-        transform: scale(1.2); /* Enlarge the button by 10% */
-        transition: transform 0.3s ease-in-out; /* Smooth transition */
-    }
-
-    .icon-container {
-        display: inline-block; /* or flex, depending on your layout needs */
-        transition: transform 0.3s ease-in-out; /* Smooth transition for scaling */
-    }
-
-    .icon-container:hover {
-        transform: scale(1.8); /* Increase the size of the icon on hover */
-    }
+  /* Monospace utility — use for code, tech labels, slugs */
+  .font-code {
+    font-family: var(--font-jetbrainsMono);
+  }
 }

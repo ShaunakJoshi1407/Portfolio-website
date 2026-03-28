@@ -12,7 +12,7 @@ const AiInferenceOrchestrator = () => {
         {/* Back */}
         <Link
           href="/projects"
-          className="inline-flex items-center gap-2 text-white/50 hover:text-accent transition-colors mb-10 text-sm"
+          className="inline-flex items-center gap-2 text-white/40 hover:text-accent transition-colors mb-10 text-sm"
         >
           <FaArrowLeft /> Back to Projects
         </Link>
@@ -23,7 +23,7 @@ const AiInferenceOrchestrator = () => {
           animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
         >
           <div className="flex items-center gap-3 mb-3">
-            <span className="bg-accent/15 text-accent text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+            <span className="bg-accent/5 text-accent text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
               DevOps
             </span>
           </div>
@@ -31,7 +31,7 @@ const AiInferenceOrchestrator = () => {
           <p className="text-white/70 text-lg leading-relaxed mb-8">
             A Kubernetes-native control plane for AI model inference workloads, built with Go and
             controller-runtime. Extends the Kubernetes API with a custom{" "}
-            <code className="text-accent bg-accent/10 px-1 rounded">AIDeployment</code> resource
+            <code className="text-white bg-accent/10 px-1 rounded">AIDeployment</code> resource
             that declaratively manages deployment orchestration, autoscaling, drift detection, and
             observability — controllable through a CLI, HTTP tool server, or natural language
             interface.
@@ -54,7 +54,7 @@ const AiInferenceOrchestrator = () => {
               (tech) => (
                 <span
                   key={tech}
-                  className="bg-white/10 text-accent text-xs font-medium px-3 py-1 rounded"
+                  className="bg-accent/10 text-accent text-xs font-medium px-3 py-1 rounded"
                 >
                   {tech}
                 </span>
@@ -85,16 +85,16 @@ const AiInferenceOrchestrator = () => {
           ].map((item, i) => (
             <div
               key={i}
-              className="bg-[#232329] rounded-xl p-6 border border-white/5 hover:border-accent/20 transition-all"
+              className="bg-surface rounded-xl p-6 border border-white/5 hover:border-white/15 transition-all"
             >
-              <h3 className="text-accent font-semibold mb-2">{item.title}</h3>
+              <h3 className="text-white font-semibold mb-2">{item.title}</h3>
               <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
 
         {/* Controller guarantees */}
-        <div className="bg-[#232329] rounded-xl p-6 border border-white/5 mb-10">
+        <div className="bg-surface rounded-xl p-6 border border-white/5 mb-10">
           <h3 className="font-semibold mb-4 text-white/90">Controller Guarantees</h3>
           <ul className="flex flex-col gap-2">
             {[
@@ -104,7 +104,7 @@ const AiInferenceOrchestrator = () => {
               "Owner references — child resources garbage-collected when CR is deleted",
             ].map((point, i) => (
               <li key={i} className="flex items-start gap-2 text-white/60 text-sm">
-                <span className="text-accent mt-0.5 shrink-0">▸</span>
+                <span className="text-accent/60 mt-0.5 shrink-0">▸</span>
                 {point}
               </li>
             ))}
